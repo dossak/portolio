@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section id="accueil" class="min-h-screen flex items-center justify-center bg-gray-100">
+   <div class="text-center">
+       <h1 class="text-4xl font-bold mb-4">Bienvenue sur mon portfolio</h1>
+       <p class="mb-6">Assistante administrative & commerciale - Développeuse web et mobile</p>
+       <a href="/assets/cv.pdf" class="bg-blue-500 text-white px-4 py-2 rounded" download>Télécharger mon CV</a>
+   </div>
+</section>
+
+<section id="apropos" class="container mx-auto py-16">
+   <h2 class="text-3xl font-semibold mb-4">À propos</h2>
+   <p>Passionnée par l'organisation et le développement digital, j'accompagne les entreprises dans leur transformation et leur gestion quotidienne.</p>
+</section>
+
+<section id="services" class="bg-gray-100 py-16">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-semibold mb-8 text-center">Services</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+       {% for service in services %}
+       <div class="p-6 bg-white rounded shadow reveal">
+           <h3 class="text-xl font-bold mb-2">{{ service.title }}</h3>
+           <p>{{ service.desc }}</p>
+       </div>
+       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="realisations" class="container mx-auto py-16">
+  <h2 class="text-3xl font-semibold mb-8 text-center">Réalisations</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+      {% for project in projects %}
+      <div class="bg-white rounded shadow overflow-hidden hover:shadow-lg transition">
+        <img src="{{ project.image }}" alt="{{ project.title }}" class="w-full h-48 object-cover">
+        <div class="p-4">
+           <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
+           <p class="mb-2">{{ project.desc }}</p>
+           <div class="flex space-x-4 text-sm">
+                <a href="{{ project.github }}" class="text-blue-600 hover:underline"><i class="fab fa-github mr-1"></i>GitHub</a>
+                <a href="{{ project.demo }}" class="text-blue-600 hover:underline">Démo</a>
+           </div>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+</section>
+
+<section id="competences" class="bg-gray-100 py-16">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-semibold mb-8 text-center">Compétences</h2>
+    <ul class="grid md:grid-cols-3 gap-4">
+       {% for skill in skills %}
+       <li class="bg-white p-4 rounded shadow text-center">{{ skill }}</li>
+       {% endfor %}
+    </ul>
+    <h3 class="text-2xl font-semibold mt-8 mb-4 text-center">Veille & Formations</h3>
+    <ul class="list-disc list-inside mx-auto max-w-xl">
+        {% for training in trainings %}
+        <li>{{ training }}</li>
+        {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="container mx-auto py-16">
+   <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+   <form id="contact-form" class="space-y-4 max-w-md">
+      <input type="text" placeholder="Nom" class="w-full p-2 border rounded" required>
+      <input type="email" placeholder="Email" class="w-full p-2 border rounded" required>
+      <textarea placeholder="Message" class="w-full p-2 border rounded" rows="4" required></textarea>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Envoyer</button>
+   </form>
+</section>
+
+<section id="temoignages" class="bg-gray-100 py-16">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-semibold mb-8 text-center">Témoignages</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        {% for t in testimonials %}
+        <div class="p-6 bg-white rounded shadow">
+            <p class="italic mb-2">"{{ t.comment }}"</p>
+            <p class="font-bold">- {{ t.author }}</p>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
