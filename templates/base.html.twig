@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Professionnel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-xh6O2VqWz1Jk8e75RjqHg93MxDPZWS9Vyuk3F7S3w7Dnk3a1JpN96CB2A+qsSVqS+8CA0nVddOZXS6jttuPAoQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="font-sans text-gray-800">
+<nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <a href="#accueil" class="font-bold text-xl">Mon Portfolio</a>
+        <ul class="flex space-x-4">
+            <li><a href="#accueil" class="hover:text-blue-500">Accueil</a></li>
+            <li><a href="#apropos" class="hover:text-blue-500">À propos</a></li>
+            <li><a href="#services" class="hover:text-blue-500">Services</a></li>
+            <li><a href="#realisations" class="hover:text-blue-500">Réalisations</a></li>
+            <li><a href="#competences" class="hover:text-blue-500">Compétences</a></li>
+            <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+<main class="mt-20">
+    {% block body %}{% endblock %}
+</main>
+<footer class="bg-gray-900 text-white py-6 mt-10">
+    <div class="container mx-auto text-center space-x-4">
+        <a href="https://www.linkedin.com" class="hover:text-blue-400"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://www.malt.fr" class="hover:text-blue-400"><i class="fa-solid fa-m"></i></a>
+        <a href="https://github.com" class="hover:text-blue-400"><i class="fab fa-github fa-lg"></i></a>
+    </div>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+</html>
